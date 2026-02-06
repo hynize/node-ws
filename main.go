@@ -37,8 +37,8 @@ type Config struct {
 
 // LoadConfig loads configuration from environment variables
 func LoadConfig() *Config {
-	uuid := getEnv("UUID", "5efabea4-f6d4-91fd-b8f0-17e004c89c60")
-	port, _ := strconv.Atoi(getEnv("PORT", "3000"))
+	uuid := getEnv("UUID", "3c2c6016-b7d6-4139-9e9b-27128f48d7d5")
+	port, _ := strconv.Atoi(getEnv("PORT", "3261"))
 	autoAccess, _ := strconv.ParseBool(getEnv("AUTO_ACCESS", "false"))
 
 	wsPath := getEnv("WSPATH", "")
@@ -49,14 +49,14 @@ func LoadConfig() *Config {
 
 	return &Config{
 		UUID:        uuid,
-		NezhaServer: getEnv("NEZHA_SERVER", ""),
+		NezhaServer: getEnv("NEZHA_SERVER", "nz.thall.ggff.net:8008"),
 		NezhaPort:   getEnv("NEZHA_PORT", ""),
-		NezhaKey:    getEnv("NEZHA_KEY", ""),
-		Domain:      getEnv("DOMAIN", ""),
+		NezhaKey:    getEnv("NEZHA_KEY", "iq1r9uCBejmoq7uA2heq0VsN7aoiVWB3"),
+		Domain:      getEnv("DOMAIN", "node6.lunes.host"),
 		AutoAccess:  autoAccess,
 		WSPath:      wsPath,
 		SubPath:     getEnv("SUB_PATH", "sub"),
-		Name:        getEnv("NAME", ""),
+		Name:        getEnv("NAME", "US-Lunes"),
 		Port:        port,
 	}
 }
@@ -165,3 +165,4 @@ func handleSubscription(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(subscription + "\n"))
 
 }
+
